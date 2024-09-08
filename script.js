@@ -1,15 +1,15 @@
 function toggleMode() {
   const div = document.getElementById('mode');
-let btntext = document.getElementById('btntext');
-  if(div.classList.contains('dark-mode')){
+  let btntext = document.getElementById('btntext');
+  if (div.classList.contains('dark-mode')) {
     div.classList.remove('dark-mode');
     div.classList.add('light-mode');
     btntext.innerText = 'Dark';
   }
-  else{
+  else {
     div.classList.remove('light-mode');
     div.classList.add('dark-mode');
-    btntext.innerText ='Light';
+    btntext.innerText = 'Light';
   }
 }
 let coin = document.getElementById('coin');
@@ -25,7 +25,7 @@ const themes = [
   { headColor: '#2980b9', tailColor: 'yellow', headTextColor: 'white', tailTextColor: 'black' },
   { headColor: 'red', tailColor: 'green', headTextColor: 'white', tailTextColor: 'white' },
   { headColor: 'purple', tailColor: 'orange', headTextColor: 'white', tailTextColor: 'black' },
-  { headColor: '#3498db', tailColor: '#e74c3c', headTextColor: 'white', tailTextColor: 'white' },
+  { headColor: '#3498db', tailColor: '#720e9e', headTextColor: 'white', tailTextColor: 'white' },
   { headColor: 'black', tailColor: 'red', headTextColor: 'yellow', tailTextColor: 'black' }
 ];
 
@@ -96,6 +96,6 @@ function applyTheme() {
     }
   `;
   document.head.appendChild(styleElement);
-  
+
   coin.style.backgroundColor = selectedTheme.headColor;
 }
