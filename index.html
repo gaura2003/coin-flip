@@ -1,55 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flip a coin</title>
-
-  <link rel="stylesheet" crossorigin href="./index-B3QZC3z9.css">
+  <title>Flip a Coin</title>
+  <link rel="stylesheet" crossorigin href="index-B3QZC3z9.css">
 </head>
+
 <body>
-  <div class="flex flex-col justify-center items-center w-[100%] h-[100vh] light-mode" id="mode">
-   <div class="flex justify-center items-baseline gap-20 mb-4">
-    <h1 class="text-4xl font-bold font-mono">Flip a Coin</h1>
-    <button onclick="toggleMode()" class="px-2 py-1 w-20 text-2xl bg-yellow-400 text-white rounded" id="btntext">Dark</button>
-   </div>
-   <div class="theme flex justify-center items-center pl-5">
-    <div class="text-xl text-center font-serif font-bold">Coin <br>Themes</div>
-    <div class="theme-selector flex gap-4 text-2xl px-4 py-2 justify-center items-center flex-wrap">
-      <button onclick="setTheme(1)" class="flex w-12 h-12 ">
-        <div class="rounded-s-full bg-[#2980b9] w-12 h-12 flex justify-center items-center text-white">H</div>
-        <div class="rounded-r-full bg-yellow-400 w-12 h-12 flex justify-center items-center">T</div>
-      </button>
-      <button onclick="setTheme(2)" class="flex w-12 h-12">
-        <div class="rounded-s-full bg-[#ff0000] w-12 h-12 flex justify-center items-center text-white">H</div>
-        <div class="rounded-r-full bg-[#008000] w-12 h-12 flex justify-center items-center text-white">T</div>
-      </button>
-      <button onclick="setTheme(3)" class="flex w-12 h-12">
-        <div class="rounded-s-full bg-[#800080] w-12 h-12 flex justify-center items-center text-white">H</div>
-        <div class="rounded-r-full bg-[#ffa500] w-12 h-12 flex justify-center items-center text-black">T</div>
-      </button>
-      <button onclick="setTheme(4)" class="flex w-12 h-12">
-        <div class="rounded-s-full bg-[#3498db] w-12 h-12 flex justify-center items-center text-white">H</div>
-        <div class="rounded-r-full bg-[#720e9e] w-12 h-12 flex justify-center items-center text-white">T</div>
-      </button>
-      <button onclick="setTheme(5)" class="flex w-12 h-12">
-        <div class="rounded-s-full bg-black w-12 h-12 flex justify-center items-center text-white">H</div>
-        <div class="rounded-r-full bg-red-600 w-12 h-12 flex justify-center items-center text-black">T</div>
-      </button>
+  <div class="flex flex-col justify-center items-center w-full h-[100vh] p-4 light-mode" id="mode">
+    <!-- Header with title and toggle button -->
+    <div class="flex md:flex-row justify-center items-center md:items-baseline gap-4 md:gap-20 mb-4">
+      <h1 class="text-3xl md:text-4xl font-bold font-mono text-center">Flip a Coin</h1>
+      <button onclick="toggleMode()" class="px-2 py-1 w-20 text-xl md:text-2xl bg-yellow-400 text-white rounded"
+        id="btntext">Dark</button>
     </div>
-   </div>   
-    <div class="count flex gap-20 justify-center items-center mt-3">
-      <div id="hc" class="text-3xl font-bold font-mono">Head 0</div>
-      <div id="tc" class="text-3xl font-bold font-mono">Tail 0</div>
+
+    <!-- Theme selector section -->
+    <div class="theme flex flex-col md:flex-row justify-center items-center gap-4 pl-5">
+      <div class="text-xl md:text-2xl text-center font-serif font-bold">Coin Themes</div>
+      <div
+        class="theme-selector flex gap-2 md:gap-4 text-xl md:text-2xl px-2 md:px-4 py-2 justify-center items-center flex-nowrap overflow-x-auto">
+        <!-- Theme buttons -->
+        <button onclick="setTheme(1)" class="flex w-10 h-10 md:w-12 md:h-12">
+          <div class="rounded-s-full bg-[#2980b9] w-full h-full flex justify-center items-center text-white">H</div>
+          <div class="rounded-r-full bg-yellow-400 w-full h-full flex justify-center items-center">T</div>
+        </button>
+        <button onclick="setTheme(2)" class="flex w-10 h-10 md:w-12 md:h-12">
+          <div class="rounded-s-full bg-[#ff0000] w-full h-full flex justify-center items-center text-white">H</div>
+          <div class="rounded-r-full bg-[#008000] w-full h-full flex justify-center items-center text-white">T</div>
+        </button>
+        <button onclick="setTheme(3)" class="flex w-12 h-12">
+          <div class="rounded-s-full bg-[#800080] w-12 h-12 flex justify-center items-center text-white">H</div>
+          <div class="rounded-r-full bg-[#ffa500] w-12 h-12 flex justify-center items-center text-black">T</div>
+        </button>
+        <button onclick="setTheme(4)" class="flex w-12 h-12">
+          <div class="rounded-s-full bg-[#3498db] w-12 h-12 flex justify-center items-center text-white">H</div>
+          <div class="rounded-r-full bg-[#720e9e] w-12 h-12 flex justify-center items-center text-white">T</div>
+        </button>
+        <button onclick="setTheme(5)" class="flex w-12 h-12">
+          <div class="rounded-s-full bg-black w-12 h-12 flex justify-center items-center text-white">H</div>
+          <div class="rounded-r-full bg-red-600 w-12 h-12 flex justify-center items-center text-black">T</div>
+        </button>
+      </div>
     </div>
-    <div class="coin-container mt-4 h-[300px]">
-      <div class="coin relative rounded-[50%] w-[150px] h-[150px] font-bold text-4xl top-40 before:content-['Tail'] before:bg-[yellow] before:text-black after:content-['Head'] after:bg-blue-600 after:text-white" id="coin"></div>
+
+    <!-- Counter section -->
+    <div class="count flex gap-4 md:gap-20 justify-center items-center mt-3">
+      <div id="hc" class="text-2xl md:text-3xl font-bold font-mono">Head 0</div>
+      <div id="tc" class="text-2xl md:text-3xl font-bold font-mono">Tail 0</div>
     </div>
-    <div class="btns flex justify-center items-center gap-x-10 mt-7">
-      <div class="bg-blue-600 rounded-md px-3 text-3xl w-24 text-center text-white font-mono" id="head">Head</div>
-      <div class="bg-yellow-400 rounded-md px-3 text-3xl w-24 text-center text-white font-mono" id="tail">Tail</div>
+
+    <!-- Coin display section -->
+    <div class="coin-container mt-4 h-[200px] md:h-[300px] flex justify-center">
+      <div
+        class="coin relative rounded-full w-[100px] h-[100px] md:w-[150px] md:h-[150px] font-bold text-2xl md:text-4xl top-24 md:top-40 before:content-['Tail'] before:bg-yellow-400 before:text-black after:content-['Head'] after:bg-blue-600 after:text-white"
+        id="coin"></div>
+    </div>
+
+    <!-- Buttons for flipping the coin -->
+    <div class="btns flex justify-center items-center gap-4 md:gap-10 mt-4">
+      <div class="bg-blue-600 rounded-md px-3 py-1 text-2xl md:text-3xl w-20 md:w-24 text-center text-white font-mono"
+        id="head">Head</div>
+      <div class="bg-yellow-400 rounded-md px-3 py-1 text-2xl md:text-3xl w-20 md:w-24 text-center text-white font-mono"
+        id="tail">Tail</div>
     </div>
   </div>
- <script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
